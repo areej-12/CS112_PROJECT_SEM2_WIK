@@ -2,14 +2,14 @@
 #include<vector>
 using namespace std;
 
-class clue{
+class clue{		//class clue
 public:
-vector<string>cluejournal;
+vector<string>cluejournal;			///vector to store the array of string clues
 void savescle(const string clue){
 	string entry=clue;
-	cluejournal.push_back(entry);
+	cluejournal.push_back(entry);	//used to add clue to the vetor
 }
-static int count;
+static int count;			//static to keep the count of the clues collected
 static void countcondition(){
 	}
 }
