@@ -9,7 +9,7 @@ class Character{
 	//to be accesible to the derived class and virtual functions
 	protected:
 		string name;
-		string role;
+		string rs;
 		int age;
 		
 	public:
@@ -19,7 +19,7 @@ class Character{
 		
 		//regular functions
 		string getname();
-		string getrole();
+		string getrs();
 		int getage();
 		
 		//virtual function to display details
@@ -35,7 +35,7 @@ class Suspect: public Character{
 	
 	public:
 		Suspect();
-		Suspect(string n, int a, string al, string m, bool killer);
+		Suspect(string n, string rs, int a, string al, string m, bool killer);
 		void displaydetails() const override;
 	
 		bool ifkiller();
