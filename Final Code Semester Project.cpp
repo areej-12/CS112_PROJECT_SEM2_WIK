@@ -78,14 +78,6 @@ void Suspect::displaydetails() const{
 	cout<<"Alibi: "<<alibi<<endl;
 	}
 	
-//void interrogation(){
-//	Suspect suspects[1]={
-//		Suspect("Mandy", "Roommate" ,20, "Exposed Alice for cheating","motive", false),
-//		Suspect("Bob", 19, "Went to get drinks", "Scared, under pressure", false),
-//		Suspect("Chris", 22, "In the kitchen alone", "Angry ex-boyfriend", true)
-//	};
-//}
-
 
 // --- Player Class ---
 class Player {
@@ -151,11 +143,11 @@ public:
 
     void sceneDiscovery() {
         printDivider();
-        cout << "SCENE: The Discovery \n";
+        cout << "SCENE: THE DISCOVERY \n";
         
         delay(1000);
         
-        cout << "After a long semester, you host a party in the common lounge of Hillview Girls' Hostel.\n"
+        cout << "After a long semester, you host a party in the common lounge of Hillview Hostel.\n"
             << "The storm outside is fierce, rain hitting the windows and the lights flickering.\n"
             << "As dawn breaks, the hostel falls into an eerie silence.\n"
             << "You head to the bathroom, walking through the dim corridors.\n"
@@ -323,14 +315,15 @@ public:
                     
                 case 2:
                     cout << "SCENE: INTERVIEW WITH CHRIS" << endl << endl;
-                    cout << "Chris: How are you so sure this was a murder?\n"
-                        << "\tThat b**** was clearly unstable. The way I see it, this case is pretty open and shut.\n"
-                        << "\tB**** probably took the easy way out\n"
-                        << "\tWho are you to investigate us anyway?\n"
-                        << "\tHow are we so sure you didn't kill her?\t\n"
-                        << "\tJust do everyone a favour and end this little game of yours.\n"
-                        << "\n\t*Chris mumbles to himself\n\n"
-                        << "\tSelf-righteous a**" << endl;
+                cout << "Chris: Tragic... really. Alice didn’t deserve that.\n"
+		     << "\tWe had our issues, sure—but this? Shocking.\n"
+		     << "\tShe mentioned Mandy once or twice...bein.\n"
+		     << "\tYou really think someone *did* this? *Gets aggresive*\n"
+		     << "\tWhy dig deeper?You are hurting the people she loved.\n"
+		     << "\n\t*He mutters under his breath*\n"
+		     << "\tI don't understand why..." << endl;
+
+
                     
                     player->journal.addClue("Chris is hostile and defensive. He tried to suggest Alice's death was suicide.");
                     player->journal.addClue("Chris tried to deflect suspicion by questioning your authority to investigate.");
