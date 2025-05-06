@@ -5,7 +5,8 @@ using namespace std;
 
 //character class details
 Character::Character(): name(""), role(""), age(0){}
-Character::Character(string n, string r, int a):  name(n), role(r), age(a){}
+Character::Character(string n, string r, int a):  name(n), role(r), age(a){}	//constructor
+
 string Character::getname(){
 	return name;
 }
@@ -36,7 +37,7 @@ void Suspect::displaydetails() const{
 	cout<<"Alibi: "<<alibi<<"\nMotive: "<<motive<<endl;
 	}
 	
-void interrogation(){
+void interrogation(){		//member function
 	Suspect suspects[3]={
 		Suspect("Mandy", 20, "Stayed with the group", "Exposed Alice for cheating", false),
 		Suspect("Bob", 19, "Went to get drinks", "Scared, under pressure", false),
