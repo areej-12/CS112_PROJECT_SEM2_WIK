@@ -314,7 +314,7 @@ public:
                     
                     cout << "\nPress any key to continue...";
                     getch();
-                    system("cls");
+                    system("cls");			//clearing screen
                     break;
                     
                 case 2:
@@ -353,7 +353,7 @@ public:
                         << "\n\t*Breaks down*\n\n"
                         << "\tI'm s-sorry, I can't d-do this anymore. I hope you find whoever d-did this." << endl;
                     
-                    player->journal.addClue("Bob was close to Alice and seems genuinely upset by her death.");
+                    player->journal.addClue("Bob was close to Alice and seems genuinely upset by her death.");//adding clue to journal.
                     player->journal.addClue("Bob told Alice to break up with Chris, calling him a 'jerk'.");
                     
                     cout << "\nPress any key to continue...";
