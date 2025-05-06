@@ -18,21 +18,21 @@ void printWithDelay(const string &text, int delayMilliseconds) {
 }
 
 // --- Clue Journal System ---
-class ClueJournal {
+class ClueJournal {				//Journal to track the clues storage
 public:
-    vector<string> clueEntries;
+    vector<string> clueEntries;			// Vector container to store the string 
     
-    void addClue(const string& clue) {
+    void addClue(const string& clue) {		//Member Function to store the clue 
         // Check if the clue already exists in the journal
         for (const string& entry : clueEntries) {
             if (entry == clue) {
                 return; // Skip duplicates
             }
         }
-        clueEntries.push_back(clue);
+        clueEntries.push_back(clue);		//stores ta the end of vector
     }
     
-    void showClues() {
+    void showClues() {				// used to display the clues
         cout << "\n|------------------------Your Clue Journal -----------------------------|\n";
         if (clueEntries.empty()) {
             cout << "|- No clues collected yet.\n";
@@ -46,9 +46,9 @@ public:
 };
 
 // --- Character Logic ---
-Character::Character(): name(""), rs(""), age(0){}
+Character::Character(): name(""), rs(""), age(0){}	//Charachter  class->Constructor
 Character::Character(string n, string r, int a):  name(n), rs(r), age(a){}
-string Character::getname(){
+string Character::getname(){	//Member function to accesss private memebers
 	return name;
 }
 string Character::getrs(){
@@ -57,58 +57,58 @@ string Character::getrs(){
 int Character::getage(){
 	return age;
 }
-void Character::displaydetails() const{
+void Character::displaydetails() const{ 		//const->no chnage in the function
 	cout<<"Name: "<<name<<"\nAge: "<<age<<"\nRelationship with victim: "<<rs<<endl;
 	}
 
 //suspect class details
-Suspect::Suspect(): Character(), alibi(""), motive(""), iskiller(false){}
+Suspect::Suspect(): Character(), alibi(""), motive(""), iskiller(false){} 		//suspect class constructor
 Suspect::Suspect(string n,string rs, int a, string al, string m, bool killer): Character(n, rs , a), alibi(al), motive(m), iskiller(killer){}	
-bool Suspect::ifkiller(){
+bool Suspect::ifkiller(){		//member fucnction to check the condition
 	return iskiller;
 }
-string Suspect::showalibi(){
+string Suspect::showalibi(){		//member function to show alibi
 	return alibi;
 }
-string Suspect::showmotive(){
+string Suspect::showmotive(){		//member function to show motive
 	return motive;
 }
-void Suspect::displaydetails() const{
+void Suspect::displaydetails() const{	//display the detaials->const->in functionthe member value can't be cahnged
 	Character::displaydetails();
 	cout<<"Alibi: "<<alibi<<endl;
 	}
 	
 
 // --- Player Class ---
-class Player {
+class Player {				//player class
 public:
     string name;
     ClueJournal journal;
 
-    Player(string n) : name(n) {}
+    Player(string n) : name(n) {}		//constructor
 
-    void showResults(bool win) {
+    void showResults(bool win) {		//display result based on condition
         cout << "\n--- Final Results ---\n";
         cout << "Detective: " << name << endl;
 
         if (win) {
             cout << "Outcome: WIN! Justice is served.\n";
-        } else {
+        } else {						//conditional
             cout << "Outcome: FAIL. The killer got away...\n";
         }
     }
 };
 
 // --- Game Class & Flow Controller ---
-class Game {
+class Game {		//game class
 private:
-    bool killerIdentified;
-    Player* player;
+    bool killerIdentified; 			//PRIVATE 
+    Player* player;				//Pointer to class
     Suspect mandy;
-    Suspect chris;
+    Suspect chris;				//class suspect object
     Suspect bob;
 
-    void delay(int milliseconds) {
+    void delay(int milliseconds) {		//display in slow motion(gameified)
         this_thread::sleep_for(chrono::milliseconds(milliseconds));
     }
 
@@ -117,9 +117,9 @@ private:
     }
 
 public:
-    string playerName;
+    string playerName;		
     
-    Game() : killerIdentified(false),
+    Game() : killerIdentified(false),		//constructor
     //Suspect(string n,string rs, int a, string al, string m, bool killer)
         mandy("Mandy", "Roommate", 20, "At the cafe", "Jealousy", false),
         chris("Chris", "Boyfriend", 22, "Library", "Possessiveness", true),
@@ -131,17 +131,17 @@ public:
         scene2();
         printDivider();
         
-        cout << "Enter your name, Detective: ";
+        cout << "Enter your name, Detective: ";		//game start
         getline(cin, playerName);
         player = new Player(playerName);
 
-        cout << "\nHello, Detective " << player->name << "! Your investigation begins...\n\n";
+        cout << "\nHello, Detective " << player->name << "! Your investigation begins...\n\n";		//display
         delay(1000);
         system("cls");
         sceneDiscovery();
     }
 
-    void sceneDiscovery() {
+    void sceneDiscovery() {		//scene 1
         printDivider();
         cout << "SCENE: THE DISCOVERY \n";
         
@@ -166,7 +166,7 @@ public:
     }
 
     void scene22() {
-        cout << "SCENE : REACTION\n";
+        cout << "SCENE : REACTION\n";		//scene 2
         cout << "After a quick look around, you realise there is no sign of forced entry.\n"
             << "Realizing the gravity of the situation, you run back to the common lounge in a frenzy. \n";
         text = "\n\t\t\tIt's clear: the murderer is among you.\n";
@@ -362,7 +362,7 @@ public:
                     break;
                     
                 case 4:
-                    player->journal.showClues();
+                    player->journal.showClues();//adding clues to journal simaantenously
                     cout << "\nPress any key to continue...";
                     getch();
                     system("cls");
@@ -398,7 +398,7 @@ public:
         
         switch (choice4) {
             case 1:
-                cout << "Congratulations, Detective " << playerName << "!" << endl;
+                cout << "Congratulations, Detective " << playerName << "!" << endl;  //final clue
                 cout << "\nYou carefully present your evidence:" << endl;
                 cout << "- The threatening messages on Alice's phone" << endl;
                 cout << "- Alice's diary mentioning Chris's scary temper" << endl;
@@ -433,7 +433,7 @@ public:
 
 // --- Main function ---
 int main() {
-    Game game;
-    game.startGame();
+    Game game;// main class
+    game.startGame();//calling main function
     return 0;
 }
