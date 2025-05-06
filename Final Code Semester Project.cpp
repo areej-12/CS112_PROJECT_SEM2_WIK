@@ -249,10 +249,13 @@ public:
     }
 
     void interviewPhase() {
+    	//declaring choice2 to store user's choice from options menu1
+    	//declaring choice2 to store user's choice from options menu2
         int choice2, choice3;
         bool ready_to_accuse = false;
         
         do {
+        	//options menu1
             cout << "\nWho do you wish to interview?" << endl;
             cout << "1. Mandy" << endl;
             cout << "2. Chris" << endl;
@@ -265,6 +268,7 @@ public:
             
             switch (choice2) {
                 case 1:
+                	//scene description (interview with mandy)
                     cout << "SCENE: INTERVIEW WITH MANDY" << endl;
                     cout << "MANDY: I'm not comfortable talking in front of...\n"
                         << "\t*Mandy's gaze fixates on someone in the room for a while but before\n"
@@ -285,7 +289,7 @@ public:
                         << "\ther side of the room if you wish." << endl;
                     
                     player->journal.addClue("According to Mandy, Alice was frequently upset at night, texting someone - possibly Chris.");
-                    
+                    //options menu2
                     cout << endl << "As you look around Alice's side of the room, you find her phone and diary.\n"
                         << "Which do you wish to investigate?" << endl;
                     cout << "1. Her Phone" << endl;
@@ -314,10 +318,11 @@ public:
                     break;
                     
                 case 2:
-                    cout << "SCENE: INTERVIEW WITH CHRIS" << endl << endl;
+                //scene description (interview with chris)
+                cout << "SCENE: INTERVIEW WITH CHRIS" << endl << endl;
                 cout << "Chris: Tragic... really. Alice didn’t deserve that.\n"
 		     << "\tWe had our issues, sure—but this? Shocking.\n"
-		     << "\tShe mentioned Mandy once or twice...bein.\n"
+		     << "\tShe mentioned Mandy once or twice....\n"
 		     << "\tYou really think someone *did* this? *Gets aggresive*\n"
 		     << "\tWhy dig deeper?You are hurting the people she loved.\n"
 		     << "\n\t*He mutters under his breath*\n"
@@ -334,6 +339,7 @@ public:
                     break;
                     
                 case 3:
+                	//scene description (interview with Bob)
                     cout << "SCENE: INTERVIEW WITH BOB" << endl << endl;
                     cout << "Bob:\tC-Could we please t-talk in the hallway?\n"
                         << "\tIf you dont mind...\n"
@@ -378,6 +384,7 @@ public:
     void makeAccusation() {
         int choice4;
         system("cls");
+        //Final menu (to choose killer)
         cout << "So dear " << playerName << ", are you ready to choose the Killer?" << endl;
         cout << "Before making your accusation, you review the evidence one last time:" << endl;
         player->journal.showClues();
